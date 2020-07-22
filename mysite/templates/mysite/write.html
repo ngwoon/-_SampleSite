@@ -1,9 +1,10 @@
 {% extends "base.html" %}
+{% load mysite_tool %}
 
 {% block list %}
 <ol>
     {% for title in list %}
-    <li>{{ title }}</li>
+      <li><a href="{% url 'mysite:index_params' list|getIdx:title%}">{{ title }}</a></li>
     {% endfor %}
 </ol>
 {% endblock %}
