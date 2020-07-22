@@ -13,13 +13,16 @@ def index(request, pid=None):
 
     data = {'list': [record['title'] for record in qsData.values()]}
     temp = [record['description'] for record in qsData.values()]
-    data.update({'description': temp[pid]})
-    return render(request, "polls/index.html", data)
+    if not temp:
+        data.update({'description': "내용이 없습니다."})
+    else:
+        data.update({'description': temp[pid]})
+    return render(request, "mysite/index.html", data)
 
 def write(request):
     qsData = Post.objects.all()
     data = {'list': [record['title'] for record in qsData.values()]}
-    return render(request, "polls/write.html", data)
+    return render(request, "mysite/write.html", data)
 
 def process(request):
     title = request.POST.get('title')
@@ -32,4 +35,4 @@ def process(request):
         Post.objects.create(title=title, description=description, time=datetime.now())
         messages.success(request, "성공적으로 작성하였습니다.")
 
-    return redirect('polls:write')
+    return redirect('mysite:write')
