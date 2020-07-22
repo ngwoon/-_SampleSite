@@ -7,8 +7,18 @@
     color: black;
 }
 #image{
-    width:100px;
+    width:200px;
+    margin: 10px;
+}
+#control {
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 .container {
     padding-top: 10px;
+}
+.footer {
+    margin-top:20px;
+    margin-right:30px;
+    background-color: #bebebe;
 }

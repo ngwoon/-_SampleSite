@@ -8,13 +8,14 @@
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'mysite/style.css' %}">
 </head>
 <body id="body">
-  <div class="container-fluid">
+  <div class="container clear-top">
     <header class="jumbotron text-center">
       <img id="image" src="https://s3.ap-northeast-2.amazonaws.com/opentutorials-user-file/course/94.png" alt="생활코딩" class="img-circle"/>
-      <h1><a href="{% url 'mysite:index' %}">JavaScript</a></h1> 
+      <br/>
+      <h1><a href="{% url 'mysite:index' %}">My WIKI</a></h1> 
     </header>
     
     <div class="row">
@@ -54,6 +55,14 @@
           <a href="{% url 'mysite:write' %}" class="btn btn-success">쓰기</a>
         </div>
       </div>
+    </div>
+
+    <div class="jumbotron footer">
+      <div align=right>
+        Made By <a href="https://github.com/ngwoon">ngwoon</a><br>
+        Blog address: <a href="https://ngwoon.github.io">https://ngwoon.github.io</a><br>
+        Seoul, Jungnang-gu, Korea
+        </div>
     </div>
   </div>
 
