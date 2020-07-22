@@ -1,0 +1,14 @@
+.black_body{
+    background-color: black;
+    color: white;
+}
+.white_body{
+    background-color: white;
+    color: black;
+}
+#image{
+    width:100px;
+}
+.container {
+    padding-top: 10px;
+}

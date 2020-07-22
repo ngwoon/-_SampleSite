@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block list %}
+<ol>
+    {% for title in list %}
+    <li>{{ title }}</li>
+    {% endfor %}
+</ol>
+{% endblock %}
+
+{% block content %}
+<form action="{% url 'polls:process' %}" method="post">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="form-title">제목</label>
+        <input type="text" class="form-control" name="title" id="form-title" placeholder="제목을 입력하세요." />
+    </div>
+    <div class="form-group">
+        <label for="form-description">내용</label>
+        <textarea class="form-control" rows="10" name="description" id="form-description" placeholder="내용을 입력하세요."></textarea>
+    </div>
+
+    <input type="submit" value="제출" id="submit" class="btn btn-success"/>
+</form>
+{% endblock %}
