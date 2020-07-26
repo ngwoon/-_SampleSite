@@ -29,7 +29,6 @@ def try_logout(request):
     logout(request)
     return redirect('mysite:index')
 
-
 def create(request):
     if request.method == 'POST':
         form = CreateUser(request.POST)

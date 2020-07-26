@@ -58,7 +58,11 @@
         </article>
         <div id="control">
           <input type="button" id="btn" class="btn btn-primary" value="야간모드 OFF" />
-          <a href="{% url 'mysite:write' %}" id="writeBtn" class="btn btn-success">쓰기</a>
+          {% if request.user.is_authenticated %}
+            <a href="{% url 'mysite:write' %}" id="writeBtn" class="btn btn-success">쓰기</a>
+          {% else %}
+            <a href="{% url 'mysite:write' %}" id="writeBtn" class="btn btn-success disabled">쓰기</a>
+          {% endif %}
         </div>
       </div>
     </div>

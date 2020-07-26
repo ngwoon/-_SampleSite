@@ -15,7 +15,9 @@
       
           <!-- Icon -->
           <div class="fadeIn first">
-          <img src="https://s3.ap-northeast-2.amazonaws.com/opentutorials-user-file/course/94.png" id="icon" alt="User Icon" onclick="toMainPage();"/>
+            <div class="main_img">
+              <img src="https://s3.ap-northeast-2.amazonaws.com/opentutorials-user-file/course/94.png" id="icon" alt="User Icon" onclick="imgClick();"/>
+            </div>
           </div>
       
           <!-- Login Form -->
@@ -43,10 +45,10 @@
         </div>
       </div>
 
-      <script>
-        function toMainPage() {
-          location.href="{% url 'mysite:index' %}";
-        }
-      </script>
+    <script>
+      function imgClick() {
+        location.href="{% url 'mysite:index' %}"
+      }
+    </script>
 </body>
 </html>
