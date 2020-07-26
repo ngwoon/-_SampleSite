@@ -20,6 +20,13 @@
       
           <!-- Login Form -->
           
+          {% if messages %}
+            {% for message in messages %}
+            <div id="message" class="alert alert-danger" role="alert">    
+                {{ message.message }}
+            </div>
+            {% endfor %}
+          {% endif %}
           <form method="POST" action="{% url 'users:create' %}">
             {% csrf_token %}
             {{ form.as_p }}

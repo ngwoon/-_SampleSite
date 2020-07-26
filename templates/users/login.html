@@ -15,11 +15,17 @@
       
           <!-- Icon -->
           <div class="fadeIn first">
-            <img src="https://s3.ap-northeast-2.amazonaws.com/opentutorials-user-file/course/94.png" id="icon" alt="User Icon" />
+          <img src="https://s3.ap-northeast-2.amazonaws.com/opentutorials-user-file/course/94.png" id="icon" alt="User Icon" onclick="toMainPage();"/>
           </div>
       
           <!-- Login Form -->
-          
+          {% if messages %}
+            {% for message in messages %}
+            <div id="message" class="alert alert-danger" role="alert">    
+                {{ message.message }}
+            </div>
+            {% endfor %}
+          {% endif %}
           <form method="POST" action="{% url 'users:login' %}">
             {% csrf_token %}
             {{ form.as_p }}
@@ -36,5 +42,11 @@
           
         </div>
       </div>
+
+      <script>
+        function toMainPage() {
+          location.href="{% url 'mysite:index' %}";
+        }
+      </script>
 </body>
 </html>
