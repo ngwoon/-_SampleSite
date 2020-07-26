@@ -5,18 +5,21 @@ from datetime import datetime
 from django.contrib import messages
 from django.urls import reverse
 
+
 # Create your views here.
 def index(request, pid=None):
     if pid == None:
         pid = 0
+    
     qsData = Post.objects.all()
-
+    
     data = {'list': [record['title'] for record in qsData.values()]}
     temp = [record['description'] for record in qsData.values()]
     if not temp:
         data.update({'description': "내용이 없습니다."})
     else:
         data.update({'description': temp[pid]})
+
     return render(request, "mysite/index.html", data)
 
 def write(request):
@@ -36,3 +39,4 @@ def process(request):
         messages.success(request, "성공적으로 작성하였습니다.")
 
     return redirect('mysite:write')
+

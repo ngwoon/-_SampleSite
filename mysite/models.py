@@ -6,4 +6,3 @@ class Post(models.Model):
     title = models.CharField(max_length=10)
     description = models.TextField()
     time = models.DateTimeField(auto_now_add=True)
-

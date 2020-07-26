@@ -35,7 +35,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -45,7 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'mysite',
+    'mysite.apps.MysiteConfig',
+    'users.apps.UsersConfig',
 ]
 
 MIDDLEWARE = [
@@ -63,7 +63,7 @@ ROOT_URLCONF = 'django_practice.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [ os.path.join(BASE_DIR, 'templates') ],  # 추가
+        'DIRS': [ os.path.join(BASE_DIR, 'templates') ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -108,13 +108,18 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Authentication
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend', # Django? ???? AUTH
+]
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ko'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Seoul'
 
 USE_I18N = True
 
@@ -127,3 +132,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATIC_ROOT = os.path.join(BASE_DIR, '.static')
+
+AUTH_USER_MODEL = 'users.User'
+
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True

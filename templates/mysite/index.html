@@ -2,10 +2,10 @@
 {% load mysite_tool %}
 
 {% block list %}
-<ol>
-    {% for title in list %}
-      <li><a href="{% url 'mysite:index_params' list|getIdx:title%}">{{ title }}</a></li>
-    {% endfor %}
+<ol>  
+  {% for title in list %}
+    <li><a href="{% url 'mysite:index_params' list|getIdx:title%}">{{ title }}</a></li>
+  {% endfor %}
 </ol>
 {% endblock %}
 
