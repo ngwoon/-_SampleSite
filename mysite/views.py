@@ -4,7 +4,7 @@ from .models import Post
 from datetime import datetime
 from django.contrib import messages
 from django.urls import reverse
-
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def index(request, pid=None):
@@ -23,11 +23,13 @@ def index(request, pid=None):
 
     return render(request, "mysite/index.html", data)
 
+@login_required
 def write(request):
     qsData = Post.objects.all()
     data = {'list': [record['title'] for record in qsData.values()]}
     return render(request, "mysite/write.html", data)
 
+@login_required
 def process(request):
     title = request.POST.get('title')
     description = request.POST.get('description')

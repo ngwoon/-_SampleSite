@@ -32,6 +32,7 @@ SECRET_KEY = get_secret("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
+# DEBUG = True
 
 ALLOWED_HOSTS = ["todory2002.pythonanywhere.com"]
 
@@ -138,3 +139,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, '.static')
 AUTH_USER_MODEL = 'users.User'
 
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+
+LOGIN_URL = '/users/login'
