@@ -19,6 +19,7 @@ def index(request, pid=None):
         data.update({'description': "내용이 없습니다."})
     else:
         data.update({'description': temp[pid]})
+        data.update({'curTitle' : qsData.values()[pid]['title']})
 
     return render(request, "mysite/index.html", data)
 
